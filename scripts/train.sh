@@ -1,5 +1,5 @@
 python3 train.py             \
---dataroot /kaggle/input/abdomenmrct/AbdomenMRCT \
+--dataroot ./data \
 --gpu_ids 0 \
 --name OTMorph  \
 --model OTMorph    \
@@ -22,4 +22,4 @@ python3 train.py             \
 --save_epoch_freq 1        \
 --display_port 8097 \
 --display_id 0 \
---checkpoints_dir /kaggle/working/model_weights
+--checkpoints_dir ./checkpoints/OTMorph
