@@ -24,19 +24,19 @@ class DataProvider(BaseDataProvider):
     def _load_data(self):
         self.imageNum = []
 
-        dataList = sorted(glob.glob(os.path.join(self.path, 'CT', '*0000.nii.gz')))
+        dataList = sorted(glob.glob(os.path.join(self.path, 'CT', 'img0001_bcv_CT.nii.gz')))
 
         if self.mode == 'train':
             for dataName_ct in dataList[:1]:
                 subNum = int(dataName_ct.split('/')[-1].split('_')[1])
-                dataName_mr = os.path.join(self.path, 'MR', 'subject_%d_0000.nii.gz'%subNum)
+                dataName_mr = os.path.join(self.path, 'MR', 'img0001_chaos_MR.nii.gz'%subNum)
                 self.imageNum.append([dataName_ct, dataName_mr])
                 np.random.shuffle(self.imageNum)
 
         else:
             for dataName_ct in dataList[1:]:
                 subNum = int(dataName_ct.split('/')[-1].split('_')[1])
-                dataName_mr = os.path.join(self.path, 'MR', 'subject_%d_0000.nii.gz'%subNum)
+                dataName_mr = os.path.join(self.path, 'MR', 'img0001_chaos_MR.nii.gz'%subNum)
                 self.imageNum.append([dataName_ct, dataName_mr])
 
         return len(self.imageNum)
